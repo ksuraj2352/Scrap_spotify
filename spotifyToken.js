@@ -15,7 +15,6 @@ const apiUrlForGeneratingToken = 'https://accounts.spotify.com/api/token';
 
 // Generate spotify authentication token
 function generateToken() {
-    console.log(process.env.CLIENT_ID)
     return new Promise((resolve, reject) => {
         axios.post(apiUrlForGeneratingToken,
             new URLSearchParams(requestDataForTokenGeneration),
@@ -35,7 +34,6 @@ function generateToken() {
             });
     })
 }
-
 
 // Exports
 module.exports = generateToken
