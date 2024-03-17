@@ -9,9 +9,9 @@ let apiUrl = "https://www.googleapis.com/youtube/v3/search"
 
 // Function to query in youtube using songs keyword
 // Params -- songsArray (contains each songs from the playlist, it is require to search in youtube)
-function searchOnYoutube(songsArray) {
+async function searchOnYoutube(songsArray) {
     try {
-        songsArray.forEach(async (song) => {
+        for (const song of songsArray) {
             let keyword = `${song.albumName} ${song.artistName} ${song.trackName}`
             // console.log(keyword)
             const response = await axios.get(apiUrl, {
@@ -20,16 +20,16 @@ function searchOnYoutube(songsArray) {
                     part: 'snippet',
                     type: 'video',
                     q: keyword,
-                    maxResults: 10
+                    maxResults: 1 // Limit to the first video for simplicity
                 }
             })
-             // for ease and accuracy, we will take the first video from search everytime
-             let firstVideo = response.data.items[0]
-             // For downloading and saving the video we are using below function
-             downloadSongsFromYoutube(firstVideo,keyword)
-        });
+            // for ease and accuracy, we will take the first video from search everytime
+            let firstVideo = response.data.items[0]
+            // For downloading and saving the video we are using below function
+            downloadSongsFromYoutube(firstVideo, keyword)
+        };
     } catch (error) {
-        console.log('Error fetching data:',error)
+        console.error('Error searching on YouTube:', error);
     }
 }
 

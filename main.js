@@ -31,5 +31,5 @@ generateToken().then((token) => {
             console.log('Error fetching data:',error)
         })
 }).catch((error) => {
-    console.log('Error fetching data:',error)
+    console.error("An error occurred:", error);
 })

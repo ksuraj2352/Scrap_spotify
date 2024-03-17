@@ -28,7 +28,7 @@ function generateToken() {
                 resolve(accessToken);
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                console.error('Error generating Spotify authentication token:', error.response ? error.response.data : error.message);
                 reject(error)
             });
     })

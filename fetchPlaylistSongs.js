@@ -13,12 +13,13 @@ function fetchPlaylistItems(token, playlistId) {
             }
         })
             .then(response => {
+                // all songs from playlist
                 let allSongs = response.data.items
                 resolve(allSongs)
             })
             .catch(error => {
                 // Handle error
-                console.error('Error fetching data:', error);
+                console.error('Error fetching playlist items:', error.response ? error.response.data : error.message);
                 reject(error)
             });
     })
