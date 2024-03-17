@@ -29,7 +29,7 @@ function searchOnYoutube(songsArray) {
              downloadSongsFromYoutube(firstVideo,keyword)
         });
     } catch (error) {
-        console.log(error)
+        console.log('Error fetching data:',error)
     }
 }
 

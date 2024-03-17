@@ -28,8 +28,8 @@ generateToken().then((token) => {
             // console.log(simplifiedTrackData)
             searchOnYoutube(simplifiedTrackData)
         }).catch((error) => {
-            console.log(error)
+            console.log('Error fetching data:',error)
         })
 }).catch((error) => {
-    console.log(error)
+    console.log('Error fetching data:',error)
 })

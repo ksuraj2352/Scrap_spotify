@@ -20,7 +20,7 @@ async function downloadSongsFromYoutube(videoInfo, keyword) {
         // Downloading and saving the file
         ytdl(url, { filter: 'audioonly' }).pipe(fs.createWriteStream(`${keyword}.mp3`));
     } catch (error) {
-        console.log(error)
+        console.log('Error fetching data:',error)
     }
 }
 
