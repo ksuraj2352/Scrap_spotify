@@ -1,6 +1,7 @@
 const { allowedNodeEnvironmentFlags } = require("process");
 const fetchPlaylistItems = require("./fetchPlaylistSongs")
-const generateToken = require("./spotifyToken")
+const generateToken = require("./spotifyToken");
+const searchOnYoutube = require("./searchOnYoutube");
 require("dotenv").config();
 
 // Variables
@@ -8,13 +9,13 @@ let spotifyToken
 let playlistId = process.env.PLAYLIST_ID
 let simplifiedTrackData = []
 
-// Function Flow
+// Script starts from here
 generateToken().then((token) => {
     spotifyToken = token
-    console.log(spotifyToken)
+    // console.log(spotifyToken)
     fetchPlaylistItems(spotifyToken, playlistId)
         .then((allPlaylistSongs) => {
-            console.log(allPlaylistSongs)
+            // console.log(allPlaylistSongs)
             allPlaylistSongs.forEach((song) => {
                 let songData = {
                     albumName: song.track.album.name,
@@ -24,7 +25,8 @@ generateToken().then((token) => {
                 }
                 simplifiedTrackData.push(songData)
             })
-            console.log(simplifiedTrackData)
+            // console.log(simplifiedTrackData)
+            searchOnYoutube(simplifiedTrackData)
         }).catch((error) => {
             console.log(error)
         })

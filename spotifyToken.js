@@ -12,7 +12,6 @@ const requestDataForTokenGeneration = {
 // Spotify api for generating token
 const apiUrlForGeneratingToken = 'https://accounts.spotify.com/api/token';
 
-
 // Generate spotify authentication token
 function generateToken() {
     return new Promise((resolve, reject) => {
