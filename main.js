@@ -28,7 +28,7 @@ generateToken().then((token) => {
             // console.log(simplifiedTrackData)
             searchOnYoutube(simplifiedTrackData)
         }).catch((error) => {
-            console.log('Error fetching data:',error)
+            console.log('Error fetching data from playlist:',error)
         })
 }).catch((error) => {
     console.error("An error occurred:", error);
