@@ -5,13 +5,17 @@
 Create (.env) file in root directory of the project containing these below data:
 
 -- Spotify Client ID (as CLIENT_ID)
+
 -- Spotify Client Secret (as CLIENT_SECRET)
+
 -- Spotify Playlist ID (as PLAYLIST_ID)
+
 -- Youtube API Key (as YOUTUBE_API_KEY)
 
 ## Installation
 
 -- Clone the repository.
+
 -- Install dependencies:
 
 run npm install
